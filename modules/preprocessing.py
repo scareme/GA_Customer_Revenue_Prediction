@@ -13,6 +13,15 @@ def df_json_convert(data, columns):
     return data
 
 
+def show_json_example(example, stopword=None):
+    for key, value in json.loads(example).items():
+        if stopword:
+            if stopword != value:
+                print(f'{key}: {value}')
+        else:
+            print(f'{key}: {value}')
+
+
 def read_zip(zipfile, file, **kwards):
     with ZipFile(zipfile) as zip_file:
         with zip_file.open(file) as myfile:
